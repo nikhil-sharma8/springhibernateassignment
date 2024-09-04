@@ -19,7 +19,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-class TransactionServiceDAOImplTest {
+public class TransactionServiceDAOImplTest {
 
     @Mock
     private TransactionDAO transactionDAO;
@@ -36,7 +36,7 @@ class TransactionServiceDAOImplTest {
     }
 
     @Test
-    void testGetAllTransactions() {
+    public void testGetAllTransactions() {
         List<Transaction> mockTransactions = Arrays.asList(new Transaction(), new Transaction());
         when(transactionDAO.getAllTransactions()).thenReturn(mockTransactions);
 
@@ -47,7 +47,7 @@ class TransactionServiceDAOImplTest {
     }
 
     @Test
-    void testSaveTransaction_Credit() {
+    public void testSaveTransaction_Credit() {
         Account account = new Account();
         account.setBalance(1000.0);
         when(accountDAO.getAccountById(1L)).thenReturn(account);
@@ -59,7 +59,7 @@ class TransactionServiceDAOImplTest {
     }
 
     @Test
-    void testSaveTransaction_Debit() {
+    public void testSaveTransaction_Debit() {
         Account account = new Account();
         account.setBalance(1000.0);
         when(accountDAO.getAccountById(1L)).thenReturn(account);
@@ -71,7 +71,7 @@ class TransactionServiceDAOImplTest {
     }
 
     @Test
-    void testSaveTransaction_AccountNotFound() {
+    public void testSaveTransaction_AccountNotFound() {
         when(accountDAO.getAccountById(1L)).thenReturn(null);
 
         transactionService.saveTransaction(200, "CREDIT", 1L);
@@ -80,7 +80,7 @@ class TransactionServiceDAOImplTest {
     }
 
     @Test
-    void testGetTransactionById() {
+    public void testGetTransactionById() {
         Transaction transaction = new Transaction();
         when(transactionDAO.getTransactionById(1L)).thenReturn(transaction);
 
@@ -91,7 +91,7 @@ class TransactionServiceDAOImplTest {
     }
 
     @Test
-    void testDeleteTransaction() {
+    public void testDeleteTransaction() {
         Long transactionId = 1L;
 
         String result = transactionService.deleteTransaction(transactionId);

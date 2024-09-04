@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
-class AccountControllerTest {
+public class AccountControllerTest {
 
     @Mock
     private AccountServiceDAO accountServiceDAO;
@@ -33,7 +33,7 @@ class AccountControllerTest {
     }
 
     @Test
-    void testGetAllAccounts(){
+    public void testGetAllAccounts(){
         List<Account> accounts= Arrays.asList(new Account(), new Account());
         when(accountServiceDAO.getAllAccounts()).thenReturn(accounts);
 
@@ -45,13 +45,13 @@ class AccountControllerTest {
     }
 
     @Test
-    void testCreateAccountForm(){
+    public void testCreateAccountForm(){
         String viewName = accountController.createAccount();
         assertEquals("account-form", viewName);
     }
 
     @Test
-    void testCreateAccount(){
+    public void testCreateAccount(){
         Account account = new Account();
 
         String viewName = accountController.createAccount(account);

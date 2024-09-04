@@ -17,7 +17,7 @@ import static junit.framework.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-class AccountServiceDAOImplTest {
+public class AccountServiceDAOImplTest {
     @Mock
     private AccountDAO accountDAO;
 
@@ -30,7 +30,7 @@ class AccountServiceDAOImplTest {
     }
 
     @Test
-    void testGetAllAccounts() {
+    public void testGetAllAccounts() {
         List<Account> mockAccounts = Arrays.asList(new Account(), new Account());
         when(accountDAO.getAllAccounts()).thenReturn(mockAccounts);
 
@@ -41,7 +41,7 @@ class AccountServiceDAOImplTest {
     }
 
     @Test
-    void testSaveAccount() {
+    public void testSaveAccount() {
         Account account = new Account();
 
         accountService.saveAccount(account);
@@ -50,7 +50,7 @@ class AccountServiceDAOImplTest {
     }
 
     @Test
-    void testGetAccountById() {
+    public void testGetAccountById() {
         Account account = new Account();
         when(accountDAO.getAccountById(1L)).thenReturn(account);
 
@@ -61,7 +61,7 @@ class AccountServiceDAOImplTest {
     }
 
     @Test
-    void testDeleteAccount() {
+    public void testDeleteAccount() {
         Long accountId = 1L;
 
         String result = accountService.deleteAccount(accountId);

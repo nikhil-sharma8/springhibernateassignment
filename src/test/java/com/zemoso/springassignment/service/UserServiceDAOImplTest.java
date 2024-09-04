@@ -22,7 +22,7 @@ import static junit.framework.Assert.assertNull;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-class UserServiceDAOImplTest {
+public class UserServiceDAOImplTest {
     @Mock
     private UserDAO userDAO;
 
@@ -38,7 +38,7 @@ class UserServiceDAOImplTest {
     }
 
     @Test
-    void testGetAllUser() {
+    public void testGetAllUser() {
         List<User> mockUsers = Arrays.asList(new User(), new User());
         when(userDAO.getAllUser()).thenReturn(mockUsers);
 
@@ -49,7 +49,7 @@ class UserServiceDAOImplTest {
     }
 
     @Test
-    void testSaveUser() {
+    public void testSaveUser() {
         User user = new User();
         user.setPassword("some");
         when(passwordEncoder.encode("some")).thenReturn("encodedPassword");
@@ -62,7 +62,7 @@ class UserServiceDAOImplTest {
     }
 
     @Test
-    void testUpdateUser() {
+    public void testUpdateUser() {
         // Arrange
         User existingUser = new User();
         existingUser.setId(1L);
@@ -83,7 +83,7 @@ class UserServiceDAOImplTest {
     }
 
     @Test
-    void testGetUserById() {
+    public void testGetUserById() {
         User user = new User();
         when(userDAO.getUserById(1L)).thenReturn(user);
 
@@ -94,7 +94,7 @@ class UserServiceDAOImplTest {
     }
 
     @Test
-    void testDeleteUser() {
+    public void testDeleteUser() {
         // Arrange
         User user = new User();
         Account account = new Account();

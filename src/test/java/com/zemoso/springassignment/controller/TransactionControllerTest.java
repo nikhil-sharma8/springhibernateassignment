@@ -18,7 +18,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.ui.Model;
 
 @RunWith(MockitoJUnitRunner.class)
-class TransactionControllerTest {
+public class TransactionControllerTest {
     @Mock
     private TransactionServiceDAO transactionServiceDAO;
 
@@ -34,7 +34,7 @@ class TransactionControllerTest {
     }
 
     @Test
-    void testGetAllTransactions() {
+    public void testGetAllTransactions() {
         List<Transaction> transactions = Arrays.asList(new Transaction(), new Transaction());
         when(transactionServiceDAO.getAllTransactions()).thenReturn(transactions);
 
@@ -45,14 +45,14 @@ class TransactionControllerTest {
     }
 
     @Test
-    void testCreateTransactionForm() {
+    public void testCreateTransactionForm() {
         String viewName = transactionController.createTransaction();
 
         assertEquals("transaction-form", viewName);
     }
 
     @Test
-    void testCreateTransaction() {
+    public void testCreateTransaction() {
         String viewName = transactionController.createTransaction(100, "DEPOSIT", 1L);
 
         assertEquals("redirect:/transaction/transactions", viewName);
