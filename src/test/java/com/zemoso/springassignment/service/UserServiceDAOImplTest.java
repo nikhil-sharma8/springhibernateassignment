@@ -6,18 +6,22 @@ import com.zemoso.springassignment.model.User;
 import com.zemoso.springassignment.repository.UserDAO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNull;
 import static org.mockito.Mockito.*;
 
+@RunWith(MockitoJUnitRunner.class)
 class UserServiceDAOImplTest {
     @Mock
     private UserDAO userDAO;
@@ -95,7 +99,7 @@ class UserServiceDAOImplTest {
         User user = new User();
         Account account = new Account();
         account.setUser(user);
-        user.setAccounts(Arrays.asList(account));
+        user.setAccounts(Collections.singletonList(account));
 
         when(userDAO.getUserById(1L)).thenReturn(user);
 

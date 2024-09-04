@@ -12,11 +12,14 @@ import com.zemoso.springassignment.repository.AccountDAO;
 import com.zemoso.springassignment.repository.TransactionDAO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 
-public class TransactionServiceDAOImplTest {
+@RunWith(MockitoJUnitRunner.class)
+class TransactionServiceDAOImplTest {
 
     @Mock
     private TransactionDAO transactionDAO;

@@ -7,13 +7,15 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.ui.Model;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-
+import org.junit.runner.RunWith;
 import java.util.Arrays;
 import java.util.List;
 
+@RunWith(MockitoJUnitRunner.class)
 class AccountControllerTest {
 
     @Mock
@@ -31,7 +33,7 @@ class AccountControllerTest {
     }
 
     @Test
-    public void testGetAllAccounts(){
+    void testGetAllAccounts(){
         List<Account> accounts= Arrays.asList(new Account(), new Account());
         when(accountServiceDAO.getAllAccounts()).thenReturn(accounts);
 
@@ -43,13 +45,13 @@ class AccountControllerTest {
     }
 
     @Test
-    public void testCreateAccountForm(){
+    void testCreateAccountForm(){
         String viewName = accountController.createAccount();
         assertEquals("account-form", viewName);
     }
 
     @Test
-    public void testCreateAccount(){
+    void testCreateAccount(){
         Account account = new Account();
 
         String viewName = accountController.createAccount(account);

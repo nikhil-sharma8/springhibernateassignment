@@ -4,9 +4,11 @@ import com.zemoso.springassignment.model.Account;
 import com.zemoso.springassignment.repository.AccountDAO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +16,8 @@ import java.util.List;
 import static junit.framework.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class AccountServiceDAOImplTest {
+@RunWith(MockitoJUnitRunner.class)
+class AccountServiceDAOImplTest {
     @Mock
     private AccountDAO accountDAO;
 

@@ -10,13 +10,15 @@ import com.zemoso.springassignment.model.Transaction;
 import com.zemoso.springassignment.service.TransactionServiceDAO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.ui.Model;
 
-
-public class TransactionControllerTest {
+@RunWith(MockitoJUnitRunner.class)
+class TransactionControllerTest {
     @Mock
     private TransactionServiceDAO transactionServiceDAO;
 
