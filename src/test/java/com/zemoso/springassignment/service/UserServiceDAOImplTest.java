@@ -5,7 +5,7 @@ import com.zemoso.springassignment.model.Account;
 import com.zemoso.springassignment.model.User;
 import com.zemoso.springassignment.repository.UserDAO;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

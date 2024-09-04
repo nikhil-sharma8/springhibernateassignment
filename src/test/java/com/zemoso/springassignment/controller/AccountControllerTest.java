@@ -2,8 +2,8 @@ package com.zemoso.springassignment.controller;
 
 import com.zemoso.springassignment.model.Account;
 import com.zemoso.springassignment.service.AccountServiceDAO;
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -25,10 +25,10 @@ public class AccountControllerTest {
     private Model model;
 
     @InjectMocks
-    AccountController accountController;
+    private AccountController accountController;
 
     @BeforeEach
-    public void SetUp(){
+    void SetUp(){
         MockitoAnnotations.openMocks(this);
     }
 

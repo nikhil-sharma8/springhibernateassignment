@@ -11,7 +11,7 @@ import com.zemoso.springassignment.model.Transaction;
 import com.zemoso.springassignment.repository.AccountDAO;
 import com.zemoso.springassignment.repository.TransactionDAO;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

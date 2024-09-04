@@ -9,7 +9,7 @@ import java.util.List;
 import com.zemoso.springassignment.model.Transaction;
 import com.zemoso.springassignment.service.TransactionServiceDAO;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

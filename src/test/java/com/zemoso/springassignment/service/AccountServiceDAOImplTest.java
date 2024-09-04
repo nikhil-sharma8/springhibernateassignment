@@ -3,7 +3,7 @@ package com.zemoso.springassignment.service;
 import com.zemoso.springassignment.model.Account;
 import com.zemoso.springassignment.repository.AccountDAO;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
