@@ -23,7 +23,7 @@ public class UserController {
         this.accountServiceDAO=accountServiceDAO;
     }
 
-    private static final String redirect="redirect:/user/users";
+    private static final String REDIRECT_USER_USERS="redirect:/user/users";
 
     @GetMapping("/get")
     public String getUsers(){
@@ -45,13 +45,13 @@ public class UserController {
     @PostMapping("/addUser")
     public String createUser(@ModelAttribute("user") User user) {
         userServiceDAO.saveUser(user);
-        return redirect;
+        return REDIRECT_USER_USERS;
     }
 
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
         userServiceDAO.deleteUser(id);
-        return redirect;
+        return REDIRECT_USER_USERS;
     }
 
     @GetMapping("/edit/{id}")
@@ -64,7 +64,7 @@ public class UserController {
     @PostMapping("/updateUser")
     public String updateUser(@ModelAttribute("user") User user) {
         userServiceDAO.updateUser(user);
-        return redirect;
+        return REDIRECT_USER_USERS;
     }
 
     @PostMapping("/linkAccount")
@@ -80,7 +80,7 @@ public class UserController {
             return "error-page";
         }
 
-        return redirect;
+        return REDIRECT_USER_USERS;
     }
 
 }

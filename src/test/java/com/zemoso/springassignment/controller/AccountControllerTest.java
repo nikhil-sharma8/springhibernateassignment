@@ -14,7 +14,7 @@ import static org.mockito.Mockito.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class AccountControllertest {
+class AccountControllerTest {
 
     @Mock
     private AccountServiceDAO accountServiceDAO;
@@ -26,12 +26,12 @@ public class AccountControllertest {
     AccountController accountController;
 
     @BeforeEach
-    void SetUp(){
+    public void SetUp(){
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    void testGetAllAccounts(){
+    public void testGetAllAccounts(){
         List<Account> accounts= Arrays.asList(new Account(), new Account());
         when(accountServiceDAO.getAllAccounts()).thenReturn(accounts);
 
@@ -43,13 +43,13 @@ public class AccountControllertest {
     }
 
     @Test
-    void testCreateAccountForm(){
+    public void testCreateAccountForm(){
         String viewName = accountController.createAccount();
         assertEquals("account-form", viewName);
     }
 
     @Test
-    void testCreateAccount(){
+    public void testCreateAccount(){
         Account account = new Account();
 
         String viewName = accountController.createAccount(account);
