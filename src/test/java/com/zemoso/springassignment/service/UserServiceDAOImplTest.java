@@ -83,6 +83,25 @@ public class UserServiceDAOImplTest {
     }
 
     @Test
+    public void testUpdateUser_UserNotFound() {
+        // Arrange
+        User user = new User();
+        user.setId(1L);
+        user.setUsername("Nikhil");
+        user.setPassword("sharma");
+        user.setEmail("n@gmail.com");
+
+        when(userDAO.getUserById(1L)).thenReturn(null); // Simulate user not found
+
+        // Act
+        userService.updateUser(user);
+
+        // Assert
+        verify(userDAO, never()).saveUser(any(User.class)); // Ensure saveUser is never called
+    }
+
+
+    @Test
     public void testGetUserById() {
         User user = new User();
         when(userDAO.getUserById(1L)).thenReturn(user);

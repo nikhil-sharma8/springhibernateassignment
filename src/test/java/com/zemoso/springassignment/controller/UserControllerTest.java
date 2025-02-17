@@ -136,4 +136,37 @@ public class UserControllerTest {
         verify(model, times(1)).addAttribute("error", "Invalid user ID or account ID");
         verify(accountServiceDAO, never()).saveAccount(any(Account.class));
     }
+
+    @Test
+    public void testLinkAccountToUser_UserExistsButAccountIsNull() {
+        Long userId = 1L;
+        Long accountId = 1L;
+        User user = new User();
+
+        when(userServiceDAO.getUserById(userId)).thenReturn(user);
+        when(accountServiceDAO.getAccountById(accountId)).thenReturn(null);
+
+        String viewName = userController.linkAccountToUser(userId, accountId, model);
+
+        assertEquals("error-page", viewName);
+        verify(model, times(1)).addAttribute("error", "Invalid user ID or account ID");
+        verify(accountServiceDAO, never()).saveAccount(any(Account.class));
+    }
+
+    @Test
+    public void testLinkAccountToUser_AccountExistsButUserIsNull() {
+        Long userId = 1L;
+        Long accountId = 1L;
+        Account account = new Account();
+
+        when(userServiceDAO.getUserById(userId)).thenReturn(null);
+        when(accountServiceDAO.getAccountById(accountId)).thenReturn(account);
+
+        String viewName = userController.linkAccountToUser(userId, accountId, model);
+
+        assertEquals("error-page", viewName);
+        verify(model, times(1)).addAttribute("error", "Invalid user ID or account ID");
+        verify(accountServiceDAO, never()).saveAccount(any(Account.class));
+    }
+
 }
